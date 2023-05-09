@@ -2,12 +2,16 @@
 
 @layer base {
   h1 {
-    @apply text-2xl;
+    @apply text-5xl;
   }
 }
 
 @tailwind components;
 @tailwind utilities;
+
+.backgroundColor{
+  @apply bg-stone-900;
+}
 
 .centerItems{
   @apply flex flex-col items-center;
