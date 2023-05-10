@@ -9,6 +9,9 @@ const Picture = () => (
     height={360}
     width={360}
     alt="picture"
+    style={{
+      borderRadius: "50%"
+    }}
   />
 );
 const LinkedInIcon = () => (
@@ -29,10 +32,35 @@ const GithubLight = () => (
   />
 );
 
+const skillsList = {
+  lanuages: [
+    "C++",
+    "Rust",
+    "JavaScript / Typescript",
+    "C",
+    "MySQL",
+    "Java",
+    "Python"
+  ],
+  toolsFrameworks: [
+    "React",
+    "Tailwind CSS",
+    "Next.js",
+    "Git",
+  ]
+}
+
+const projectsList = [
+  "2048 Clone",
+  "Chess",
+  "MineSweeper"
+]
+
 export default function Home() {
-  const firstItemRef = useRef<HTMLHeadingElement>(null);
-  const secondItemRef = useRef<HTMLHeadingElement>(null);
-  const thirdItemRef = useRef<HTMLHeadingElement>(null);
+  const topRef = useRef<HTMLHeadingElement>(null);
+  const aboutRef = useRef<HTMLHeadingElement>(null);
+  const skillsRef = useRef<HTMLHeadingElement>(null);
+  const projectsRef = useRef<HTMLHeadingElement>(null);
   return (
     <>
       <Head>
@@ -41,11 +69,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="text-white">
-        <nav className="flex flex-row justify-evenly text-xl">
-          <button onClick={() => firstItemRef.current?.scrollIntoView()}>About</button>
-          <button onClick={() => secondItemRef.current?.scrollIntoView()}>Skills</button>
-          <button onClick={() => thirdItemRef.current?.scrollIntoView()}>Projects</button>
+      <main>
+        <h1 ref={topRef}></h1>
+        <nav className="flex flex-row justify-evenly text-2xl my-4">
+          <button onClick={() => aboutRef.current?.scrollIntoView({ behavior: "smooth" })}>About</button>
+          <button onClick={() => skillsRef.current?.scrollIntoView({ behavior: "smooth" })}>Skills</button>
+          <button onClick={() => projectsRef.current?.scrollIntoView({ behavior: "smooth" })}>Projects</button>
         </nav>
         <div className="centerItems">
           <div className="centerItems">
@@ -58,32 +87,39 @@ export default function Home() {
                 <GithubLight />
               </Link>
             </div>
-            <h1 ref={firstItemRef}>
+            <h1 ref={aboutRef} className="my-2">
               About Me
             </h1>
             <p>
-              Me Hello, my name is Thien. Welcome to my website!
+              Me Hello, my name is Thien.
             </p>
-            <div></div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </div>
           <div className="centerItems">
-            <h1 ref={secondItemRef}>Skills</h1>
-            C++
-            JavaScript/TypeScript
-            HTML
-            CSS
-            Python
+            <h1 ref={skillsRef} className="my-2">Skills</h1>
+            <button onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth" })}>↑To Top</button>
+            <h2>Lanuages</h2>
+            <ul>
+              {skillsList.lanuages.map((item) => <li>{item}</li>)}
+            </ul>
+            <h2>Tools & Frameworks</h2>
+            <ul>
+              {skillsList.toolsFrameworks.map((item) => <li>{item}</li>)}
+            </ul>
           </div>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-          <div className="centerItems">
-            <h1 ref={thirdItemRef}>Projects</h1>
-            Chess
-            Music
+          <div className="centerItems my-1">
+            <h1 ref={projectsRef}>Projects</h1>
+            <button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })}>↑To Top</button>
+            <ul>
+              {projectsList.map((item) => <li>{item}</li>)}
+            </ul>
           </div>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
       </main>
+      <footer>
+        <div className="centerItems my-4">
+          2023 © Thien Pham
+        </div>
+      </footer>
     </>
   )
 }
