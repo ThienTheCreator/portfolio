@@ -32,27 +32,27 @@ const GithubLight = () => (
   />
 );
 
-const skillsList = {
-  lanuages: [
-    "C++",
-    "Rust",
-    "Typescript",
-    "JavaScript",
-    "C",
-    "MySQL",
-    "Java",
-    "Python"
-  ],
-  toolsFrameworks: [
-    "React",
-    "Tailwind CSS",
-    "Next.js",
-    "Git",
-  ]
-}
+const lanuages = [
+  [0, "C++"],
+  [1, "Rust"],
+  [2, "Typescript"],
+  [3, "JavaScript"],
+  [4, "C"],
+  [5, "MySQL"],
+  [6, "Java"],
+  [7, "Python"]
+]
+
+const toolsFrameworks = [
+  [8, "React"],
+  [9, "Tailwind CSS"],
+  [10, "Next.js"],
+  [11, "Git"]
+]
 
 const projectsList = [
   {
+    key: 12,
     title: "2048",
     image:
       <Image
@@ -66,11 +66,13 @@ const projectsList = [
     github: "https://github.com/ThienTheCreator/2048"
   },
   {
+    key: 13,
     title: "Chess",
     image: "pic",
     description: "blah"
   },
   {
+    key: 14,
     title: "MineSweeper",
     image: "pic",
     description: "blah"
@@ -118,18 +120,18 @@ export default function Home() {
             <button onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth" })}>↑To Top</button>
             <h2 className="my-12">Lanuages</h2>
             <ul>
-              {skillsList.lanuages.map((item) => <li>{item}</li>)}
+              {lanuages.map((item) => <li key={item[0]}>{item[1]}</li>)}
             </ul>
             <h2 className="my-12">Tools & Frameworks</h2>
             <ul>
-              {skillsList.toolsFrameworks.map((item) => <li>{item}</li>)}
+              {toolsFrameworks.map((item) => <li key={item[0]}>{item[1]}</li>)}
             </ul>
           </div>
           <div className="centerItems">
             <h1 ref={projectsRef} className="my-2">Projects</h1>
             <button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })}>↑To Top</button>
             {projectsList.map((item) =>
-              <div className="border rounded-2xl w-[60rem] my-4">
+              <div key={item.key} className="border rounded-2xl w-[60rem] my-4">
                 <h2 className="centerItems m-2">{item.title}</h2>
                 <div className="flex flex-row">
                   <div className="m-5">
