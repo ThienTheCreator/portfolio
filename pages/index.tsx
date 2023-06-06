@@ -62,21 +62,52 @@ const projectsList = [
         alt="LinkedInIcon"
       />,
     description: "Clone of the 2048. Created a simple Ai to try to solve the game.",
-    demo: "https://thienthecreator.github.io/2048/",
+    demo: "https://thienthecreator.github.io/2048",
     github: "https://github.com/ThienTheCreator/2048"
   },
   {
     key: 13,
-    title: "Chess",
-    image: "pic",
-    description: "blah"
+    title: "Music",
+    image:
+      <Image
+        src="/project_images/music.png"
+        height={360}
+        width={360}
+        alt="LinkedInIcon"
+      />,
+    description: "Music group project created in React with Tone.js and P5.js",
+    demo: "https://thienthecreator.github.io/Music-App-CSC-600",
+    github: "https://github.com/ThienTheCreator/Music-App-CSC-600"
   },
   {
     key: 14,
-    title: "MineSweeper",
-    image: "pic",
-    description: "blah"
+    title: "Tetris",
+    image:
+      <Image
+        src="/project_images/tetris.png"
+        height={360}
+        width={360}
+        alt="LinkedInIcon"
+      />,
+    description: "Tetris game made in JS using Canvas. There are some options to change color of the block and layout of the display.",
+    demo: "https://thienthecreator.github.io/Tetris/",
+    github: "https://github.com/ThienTheCreator/Tetris"
+
   },
+  {
+    key: 15,
+    title: "Chess",
+    image:
+      <Image
+        src="/project_images/chess.png"
+        height={360}
+        width={360}
+        alt="LinkedInIcon"
+      />,
+    description: "Clone of the 2048. Created a simple Ai to try to solve the game.",
+    demo: "https://thienthecreator.github.io/Chess",
+    github: "https://github.com/ThienTheCreator/Chess"
+  }
 ]
 
 export default function Home() {
@@ -97,10 +128,12 @@ export default function Home() {
           <button onClick={() => skillsRef.current?.scrollIntoView({ behavior: "smooth" })}>Skills</button>
           <button onClick={() => projectsRef.current?.scrollIntoView({ behavior: "smooth" })}>Projects</button>
         </nav>
-        <div className="centerItems">
-          <div className="centerItems my-48">
-            <Picture />
-            <div className="flex fex-row">
+        <div>
+          <div className="my-48">
+            <div className="centerItems">
+              <Picture />
+            </div>
+            <div className="centerItems">
               <Link href="https://www.linkedin.com/in/ThienPham1">
                 <LinkedInIcon />
               </Link>
@@ -108,53 +141,73 @@ export default function Home() {
                 <GithubLight />
               </Link>
             </div>
-            <h1 className="my-2">
+            <h1 className="centerItems my-4">
               About Me
             </h1>
-            <p>
-              Hello, my name is Thien. I am a developer.
-            </p>
-          </div>
-          <div className="centerItems mb-96">
-            <h1 ref={skillsRef} className="my-2">Skills</h1>
-            <button onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth" })}>↑To Top</button>
-            <h2 className="my-12">Lanuages</h2>
-            <ul>
-              {lanuages.map((item) => <li key={item[0]}>{item[1]}</li>)}
-            </ul>
-            <h2 className="my-12">Tools & Frameworks</h2>
-            <ul>
-              {toolsFrameworks.map((item) => <li key={item[0]}>{item[1]}</li>)}
-            </ul>
+            <div className="centerItems my-4">
+              <p>
+                Hello, my name is Thien. I am a developer.
+              </p>
+            </div>
           </div>
           <div className="centerItems">
-            <h1 ref={projectsRef} className="my-2">Projects</h1>
-            <button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })}>↑To Top</button>
-            {projectsList.map((item) =>
-              <div key={item.key} className="border rounded-2xl w-[60rem] my-4">
-                <h2 className="centerItems m-2">{item.title}</h2>
-                <div className="flex flex-row">
-                  <div className="m-5">
-                    {item.image}
+            <div className="mb-96">
+              <div className="centerItems">
+                <h1 ref={skillsRef} className="my-4">Skills</h1>
+                <button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth" })}>↑To Top</button>
+              </div>
+              <div className="centerItems">
+                <h2 className="my-12">Lanuages</h2>
+              </div>
+              <div className="centerItems">
+                <ul>
+                  {lanuages.map((item) => <li key={item[0]}>{item[1]}</li>)}
+                </ul>
+              </div>
+              <div className="centerItems">
+                <h2 className="my-12">Tools & Frameworks</h2>
+              </div>
+              <div className="centerItems">
+                <ul>
+                  {toolsFrameworks.map((item) => <li key={item[0]}>{item[1]}</li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="centerItems">
+            <div className="">
+              <div className="centerItems">
+                <h1 ref={projectsRef} className="my-2">Projects</h1>
+                <button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })}>↑To Top</button>
+              </div>
+              {projectsList.map((item) =>
+                <div key={item.key} className="border rounded-2xl my-4">
+                  <div className="centerItems">
+                    <h2 className="m-2">{item.title}</h2>
                   </div>
-                  <div className="my-auto">
-                    <p>
-                      {item.description}
-                    </p>
-                    <div className="flex justify-evenly">
-                      {item.demo !== undefined
-                        ? <a href={item.demo} target="_blank" rel="noopener noreferrer" className="centerItems w-[100px] bg-neutral-500">Demo</a>
-                        : null
-                      }
-                      {item.demo !== undefined
-                        ? <a href={item.github} target="_blank" rel="noopener noreferrer" className="centerItems w-[100px] bg-neutral-500">GitHub</a>
-                        : null
-                      }
+                  <div className="flex flex-wrap flex-row justify-evenly">
+                    <div className="m-5 w-[360px]">
+                      {item.image}
+                    </div>
+                    <div className="my-auto w-[360px]">
+                      <p>
+                        {item.description}
+                      </p>
+                      <div className="flex justify-evenly mt-5">
+                        {item.demo !== undefined
+                          ? <a href={item.demo} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-[150px] h-[60px] bg-neutral-500">Demo</a>
+                          : null
+                        }
+                        {item.demo !== undefined
+                          ? <a href={item.github} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-[150px] h-[60px] bg-neutral-500">GitHub</a>
+                          : null
+                        }
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </main>

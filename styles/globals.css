@@ -18,5 +18,5 @@
 }
 
 .centerItems{
-  @apply flex flex-col items-center;
+  @apply flex flex-wrap justify-center;
 }
