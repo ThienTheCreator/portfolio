@@ -59,7 +59,7 @@ const projectsList = [
         src="/project_images/2048.png"
         height={360}
         width={360}
-        alt="LinkedInIcon"
+        alt="2048Picture"
       />,
     description: "Clone of the 2048. Created a simple Ai to try to solve the game.",
     demo: "https://thienthecreator.github.io/2048",
@@ -73,7 +73,7 @@ const projectsList = [
         src="/project_images/music.png"
         height={360}
         width={360}
-        alt="LinkedInIcon"
+        alt="MusicPicture"
       />,
     description: "Music group project created in React with Tone.js and P5.js",
     demo: "https://thienthecreator.github.io/Music-App-CSC-600",
@@ -87,7 +87,7 @@ const projectsList = [
         src="/project_images/tetris.png"
         height={360}
         width={360}
-        alt="LinkedInIcon"
+        alt="TetrisPicture"
       />,
     description: "Tetris game made in JS using Canvas. There are some options to change color of the block and layout of the display.",
     demo: "https://thienthecreator.github.io/Tetris/",
@@ -102,7 +102,7 @@ const projectsList = [
         src="/project_images/chess.png"
         height={360}
         width={360}
-        alt="LinkedInIcon"
+        alt="ChessPicture"
       />,
     description: "Clone of the 2048. Created a simple Ai to try to solve the game.",
     demo: "https://thienthecreator.github.io/Chess",
