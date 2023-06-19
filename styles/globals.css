@@ -14,9 +14,5 @@
 @tailwind utilities;
 
 .backgroundColor{
-  @apply bg-stone-900;
-}
-
-.centerItems{
-  @apply flex flex-wrap justify-center;
+  @apply bg-neutral-900;
 }
