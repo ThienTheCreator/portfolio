@@ -15,4 +15,5 @@
 
 .backgroundColor{
   @apply bg-neutral-900;
+  @apply w-full;
 }
