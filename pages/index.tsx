@@ -1,10 +1,28 @@
 import Head from 'next/head'
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Languages from '../components/languages';
 import Other from '../components/other';
 import Projects from '../components/projects';
+
+const MoonIcon = () => (
+	<Image
+		src="/half-moon.svg"
+		height={80}
+		width={80}
+		alt="LinkedInIcon"
+	/>
+);
+
+const SunIcon = () => (
+	<Image
+		src="/sun.svg"
+		height={80}
+		width={80}
+		alt="LinkedInIcon"
+	/>
+);
 
 const Picture = () => (
 	<Image
@@ -45,9 +63,28 @@ export default function Home() {
 	const topRef = useRef<HTMLHeadingElement>(null);
 	const skillsRef = useRef<HTMLHeadingElement>(null);
 	const projectsRef = useRef<HTMLHeadingElement>(null);
+	
+	const [moonClassName, setMoonClassName] = useState("");
+	const [sunClassName, setSunClassName] = useState("");
 
+	function handleMoon() {
+		document.documentElement.classList.remove("dark");
+	}
+
+	function handleSun() {
+		document.documentElement.classList.add("dark");
+	}
+
+	useEffect(() => {
+		if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+			handleSun();
+		} else {
+			handleMoon();
+		}
+	}, []);
+	
 	return (
-		<>
+		<div className="bg-white text:black dark:bg-neutral-900 dark:text-white">
 			<Head>
 				<title>Thien Pham</title>
 				<meta name="description" content="Thien Pham Portfolio" />
@@ -57,9 +94,25 @@ export default function Home() {
 			</Head>
 			<div className="w-full">
 				<h1 ref={topRef}></h1>
-				<nav className="flex flex-row justify-evenly text-2xl py-4 bg-black border border-[#808080] border-x-transparent border-t-transparent font-orbitron">
-					<button onClick={() => skillsRef.current?.scrollIntoView({ behavior: "smooth" })}>Skills</button>
-					<button onClick={() => projectsRef.current?.scrollIntoView({ behavior: "smooth" })}>Projects</button>
+				<nav className="flex text-2xl py-4  border border-[#808080] border-x-transparent border-t-transparent font-orbitron">
+					<div className='w-1/2 flex justify-center'>
+						<button onClick={() => skillsRef.current?.scrollIntoView({ behavior: "smooth" })}>Skills</button>
+					</div>	
+					<div className='w-1/2 flex'>
+						<div className="mx-auto my-auto">
+							<button onClick={() => projectsRef.current?.scrollIntoView({ behavior: "smooth" })}>Projects</button>
+						</div>
+						<div>
+							<button className="mx-2 hidden dark:block " onClick={handleMoon}>
+								<MoonIcon/>
+							</button>
+						</div>
+						<div>
+							<button className="mx-2 block dark:hidden" onClick={handleSun}>
+								<SunIcon/>
+							</button>
+						</div>
+					</div>
 				</nav>
 				<div>
 					<div className="h-[60rem] flex flex-wrap justify-center">
@@ -71,7 +124,7 @@ export default function Home() {
 								<Link href="https://www.linkedin.com/in/ThienPham1">
 									<LinkedInIcon />
 								</Link>
-								<Link href="https://github.com/ThienTheCreator">
+								<Link className="invert dark:invert-0" href="https://github.com/ThienTheCreator">
 									<GithubLight />
 								</Link>
 							</div>
@@ -157,6 +210,6 @@ export default function Home() {
 					2023 © Thien Pham
 				</div>
 			</footer>
-		</>
+		</div>
 	)
 }
