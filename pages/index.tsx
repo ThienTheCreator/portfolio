@@ -84,7 +84,7 @@ export default function Home() {
 	}, []);
 	
 	return (
-		<div className="bg-white text:black dark:bg-neutral-900 dark:text-white">
+		<div>
 			<Head>
 				<title>Thien Pham</title>
 				<meta name="description" content="Thien Pham Portfolio" />
@@ -94,7 +94,7 @@ export default function Home() {
 			</Head>
 			<div className="w-full">
 				<h1 ref={topRef}></h1>
-				<nav className="flex text-2xl py-4  border border-[#808080] border-x-transparent border-t-transparent font-orbitron">
+				<nav className="flex text-2xl py-4 bg-neutral-50 dark:bg-neutral-950 border border-[#808080] border-x-transparent border-t-transparent font-orbitron">
 					<div className='w-1/2 flex justify-center'>
 						<button onClick={() => skillsRef.current?.scrollIntoView({ behavior: "smooth" })}>Skills</button>
 					</div>	
@@ -171,7 +171,7 @@ export default function Home() {
 								<button className="ml-4" onClick={() => topRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })}>↑To Top</button>
 							</div>
 							{projectsList.map((item) =>
-								<div key={item.key} className="flex flex-col min-h-[720px] border-hidden border-8 rounded-2xl my-20 bg-neutral-700">
+								<div key={item.key} className="flex flex-col min-h-[720px] border-hidden border-8 rounded-2xl my-20 bg-neutral-300 dark:bg-neutral-700">
 									<div className="flex flex-wrap justify-center">
 										<div className="m-2 font-orbitron text-6xl">{item.title}</div>
 									</div>
@@ -188,11 +188,11 @@ export default function Home() {
 												</div>
 												<div className="flex flex-1 justify-center space-x-[10px] w-[300px] my-5">
 													{item.demo !== undefined
-														? <a href={item.demo} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-28 h-16 bg-neutral-500">Demo</a>
+														? <a href={item.demo} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-28 h-16 bg-gray-400 dark:bg-neutral-500">Demo</a>
 														: null
 													}
 													{item.demo !== undefined
-														? <a href={item.github} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-28 h-16 bg-neutral-500">GitHub</a>
+														? <a href={item.github} target="_blank" rel="noopener noreferrer" className="grid place-content-center w-28 h-16 bg-gray-400 dark:bg-neutral-500">GitHub</a>
 														: null
 													}
 												</div>
