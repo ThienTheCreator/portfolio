@@ -207,7 +207,7 @@ export default function Home() {
 			</div>
 			<footer>
 				<div className="flex flex-wrap justify-center mb-4">
-					2023 © Thien Pham
+					2025 © Thien Pham
 				</div>
 			</footer>
 		</div>
